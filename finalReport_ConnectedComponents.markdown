@@ -1,10 +1,8 @@
-::: centering
-**Network Analysis Final Project**\
-Kaitlyn Crowley, Bella Grace Finck, and Anna Glass\
-May 14, 2024 (Due: May 14, 2024)\
-:::
+### Network Analysis Final Project
+Kaitlyn Crowley, Bella Grace Finck, and Anna Glass
+May 14, 2024
 
-# Introduction {#introduction .unnumbered}
+# Introduction
 
 The movie industry is driven by vast and interwoven networks of
 collaboration between directors and the crews. This paper presents a
@@ -31,7 +29,7 @@ collaboration dynamics, career and role mobility, and the impacts of
 close collaborations to understand the network underpinning film
 production.
 
-# Data Extraction {#data-extraction .unnumbered}
+# Data Extraction 
 
 The data extraction task of this project involved two primary steps
 after we were provided with the code to scrape the IMDb database for the
@@ -44,7 +42,7 @@ data for each movie they've directed and that movie's associated cast.
 python crowley_imdb_scraper.py --parent-directory '/Users/kaitlyncrowley/Desktop/Spring2024/DATA445/FinalProject/film_directors/' --director-data-path '/Users/kaitlyncrowley/Desktop/Spring2024/DATA445/FinalProject/100_film_directors.csv' --director-id-input nm0336620,nm0000229
 ```
 
-## Data Normalization {#data-normalization .unnumbered}
+## Data Normalization
 
 In the data normalization process, we normalized the variants of
 \"Cast\" and \"Writing Credits\". Specifically, we renamed \"Cast (in
@@ -67,7 +65,7 @@ credit\" for each crew member who had a subrole, which maintained the
 integrity of the original data in case future users of the data or code
 wanted to access it.
 
-## Data Filtering {#data-filtering .unnumbered}
+## Data Filtering
 
 While the process of normalizing the data removed much of the
 unnecessary granularity in the data, we also completed a filtering step.
@@ -104,7 +102,7 @@ supervisor\" or \"visual effects supervisor\". For the other roles, we
 kept all of the associated crew members.
 
 ![Example of a crew member with multiple
-sub-roles.](soundRoles.png){#fig:soundRoles width="0.5\\linewidth"}
+sub-roles.](img/soundRoles.png){#fig:soundRoles width="0.5\\linewidth"}
 
 It is important to note that this process of normalization and filtering
 is not perfect, in large part due to the inconsistencies in IMDb data.
@@ -112,7 +110,7 @@ In future research, it would be interesting to investigate how this data
 is recorded, who records it, and what guidelines are in place to manage
 the quality and accuracy of the data that is available.
 
-## Data Download {#data-download .unnumbered}
+## Data Download
 
 Using the CSV file provided that contained the information for the 101
 directors of interest, I was able to loop through each IMDb uri and
