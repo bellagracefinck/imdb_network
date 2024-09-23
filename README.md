@@ -1,6 +1,6 @@
 # Network Analysis Final Project\
-Kaitlyn Crowley, Bella Grace Finck, and Anna Glass/n
-May 14, 2024\n
+Kaitlyn Crowley, Bella Grace Finck, and Anna Glass  
+May 14, 2024  
 
 # Introduction
 
