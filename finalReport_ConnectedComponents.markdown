@@ -1,4 +1,4 @@
-### Network Analysis Final Project
+# Network Analysis Final Project
 Kaitlyn Crowley, Bella Grace Finck, and Anna Glass
 May 14, 2024
 
@@ -139,9 +139,9 @@ data for one crew member, Tony Kushner, for one of the films Spielberg
 directed, \"The Fabelmans\".](img/directorSubset.png){#fig:directorSubset
 width="0.5\\linewidth"}
 
-# Network Generation {#network-generation .unnumbered}
+# Network Generation 
 
-## Network Structure {#network-structure .unnumbered}
+## Network Structure 
 
 Our network model is made up of two distinct node types, **director
 nodes (D)** and **crew nodes (C)**, each possessing different
@@ -149,7 +149,7 @@ attributes, and two distinct edge types, director-director edges (D-D)
 and director-crew edges (D-C). The network itself is an undirected,
 weighted graph.
 
-## Nodes {#nodes .unnumbered}
+## Nodes 
 
 **Director nodes** possess the following attributes (see Figure 1 in the
 Appendix for a detailed table of director node attributes):
@@ -201,7 +201,7 @@ Figure 2 in the Appendix for a detailed table of crew node attributes):
 ![An example output showing crew node
 attributes.](img/crew_node.png){#fig:crew-node width="0.5\\linewidth"}
 
-## Links {#links .unnumbered}
+## Links
 
 If a director and crew member worked together on a film, the two nodes
 are linked. Similarly, if a director worked under another director in a
@@ -268,24 +268,24 @@ width="0.25\\linewidth"}
 ![An example of a director-crew link.](img/DC_link.png){#fig:dc_link
 width="0.5\\linewidth"}
 
-## Assumptions and Justifications {#assumptions-and-justifications .unnumbered}
+## Assumptions and Justifications 
 
-1.  The crew member's primary role is defined as the role they possessed
-    most frequently over the course of their career. This is justified
+1.  _The crew member's primary role is defined as the role they possessed
+    most frequently over the course of their career._ This is justified
     by the fact that the vast majority (97.4%) of crew members remain in
     the same role for the entirety of their careers.
 
-2.  For one director-crew link, the edge weight calculation is invalid
+2.  _For one director-crew link, the edge weight calculation is **invalid**
     due to the fact that the director has not worked with anyone in the
     crew member's primary role and the crew member was working in a role
-    other than their primary one while on the director's film. In this
+    other than their primary one while on the director's film._ In this
     edge case, the edge weight is set equal to the collaboration score,
     which divides the number of collaborations by the total number of
     films.
 
-3.  Due to the overwhelming amount of niche subroles listed on IMDB, the
+3.  _Due to the overwhelming amount of niche subroles listed on IMDB, the
     usage of the more general role category is more effective for
-    network generation. Relying on subroles to get adequate model
+    network generation._ Relying on subroles to get adequate model
     results puts the model at a disadvantage because naming conventions
     of different roles differ across productions and many subrole titles
     are tailor-made for the movie itself. For example, crew members who
@@ -293,9 +293,9 @@ width="0.5\\linewidth"}
     Credits role, but have subroles that include the specific book or
     movie title in them.
 
-# Visualization {#visualization .unnumbered}
+# Visualization 
 
-## Process Overview {#process-overview .unnumbered}
+## Process Overview 
 
 Below is an overview of the steps I followed to complete the
 visualization task. Within this task I contribute to the analysis
@@ -325,7 +325,7 @@ research question.
 7.  Visualized networks in Gephi according to the written plan below,
     taking snapshots of the relevant filtered and unfiltered data.
 
-## Chosen Visualization Methods {#chosen-visualization-methods .unnumbered}
+## Chosen Visualization Methods 
 
 A list of the visualizations chosen to answer each research question.
 After each question I provide reasoning for why I chose this
@@ -449,7 +449,7 @@ power-law distribution.
 The network has an average shortest path length of 4.1956, an average
 clustering coefficient of 0.0159, and a density of 0.00067.
 
-## Question 1: Measure the influence of directors on crew members' careers. {#question-1-measure-the-influence-of-directors-on-crew-members-careers. .unnumbered}
+## Question 1: Measure the influence of directors on crew members' careers. 
 
 In order to measure the overall influence of directors on the future
 success of crew members, we calculate an influence metric. The
@@ -572,7 +572,7 @@ However, we conclude that this metric is a valid way of evaluating the
 impact of directors on their crew members' career trajectories provided
 that we consider the values within the context of the limitations.
 
-### Case study: Daniel Lepervanche (id = nm4951849) {#case-study-daniel-lepervanche-id-nm4951849 .unnumbered}
+### Case study: Daniel Lepervanche (id = nm4951849) 
 
 Daniel Lepervanche is a crew member whose primary role is working in the
 Sound Department. He experienced a substantial jump in his career
@@ -588,7 +588,7 @@ find significant success in the following year. Due to this instance,
 Linklater's influence score was increased by (5 films in 2016/1 film in
 2015) \* (1/1 director in 2015) = 5/1 \* 1 = 5.
 
-## Question 2: Measure how the roles of crew members fluctuate. {#question-2-measure-how-the-roles-of-crew-members-fluctuate. .unnumbered}
+## Question 2: Measure how the roles of crew members fluctuate. 
 
 The whole group discussed the metric for crew member role fluctuation.
 Anna implemented the metrics and analyzed the visualizations.
