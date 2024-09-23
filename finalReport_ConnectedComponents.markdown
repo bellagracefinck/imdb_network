@@ -102,7 +102,7 @@ supervisor\" or \"visual effects supervisor\". For the other roles, we
 kept all of the associated crew members.
 
 ![Example of a crew member with multiple
-sub-roles.](img/soundRoles.png){#fig:soundRoles width="0.5\\linewidth"}
+sub-roles.](img/soundRoles.png)
 
 It is important to note that this process of normalization and filtering
 is not perfect, in large part due to the inconsistencies in IMDb data.
@@ -136,8 +136,7 @@ rating, and a summary of the movie reviews.
 
 ![Extract from Steven Spielberg's JSON file. This image captures the
 data for one crew member, Tony Kushner, for one of the films Spielberg
-directed, \"The Fabelmans\".](img/directorSubset.png){#fig:directorSubset
-width="0.5\\linewidth"}
+directed, \"The Fabelmans\".](img/directorSubset.png)
 
 # Network Generation 
 
@@ -167,7 +166,7 @@ Appendix for a detailed table of director node attributes):
 -   collabs
 
 ![An example output showing director node
-attributes.](img/director_node.png){#fig:dir_node width="0.5\\linewidth"}
+attributes.](img/director_node.png)
 
 Whereas **crew member nodes** possess the following attributes (see
 Figure 2 in the Appendix for a detailed table of crew node attributes):
@@ -199,8 +198,7 @@ Figure 2 in the Appendix for a detailed table of crew node attributes):
 -   role
 
 ![An example output showing crew node
-attributes.](img/crew_node.png){#fig:crew-node width="0.5\\linewidth"}
-
+attributes.](img/crew_node.png)
 ## Links
 
 If a director and crew member worked together on a film, the two nodes
@@ -217,8 +215,7 @@ directing, their edge weight increases by one. The edge is undirected,
 so it will also increase by one if Director B is a producer/writer/other
 non-director role on a film Director A is directing.)
 
-![An example of a director-director link.](img/DD_link.png){#fig:dd_link
-width="0.25\\linewidth"}
+![An example of a director-director link.](img/DD_link.png)
 
 **Director-Crew links (D-C)** possess two edge attributes:
 'collaboration_score' and 'weight'.
@@ -265,8 +262,7 @@ width="0.25\\linewidth"}
         value is equal to 1 + 3 + 4 = 8. Therefore, the weight is equal
         to 2/8 = 1/4.
 
-![An example of a director-crew link.](img/DC_link.png){#fig:dc_link
-width="0.5\\linewidth"}
+![An example of a director-crew link.](img/DC_link.png)
 
 ## Assumptions and Justifications 
 
@@ -418,15 +414,13 @@ The directors in the network each have directed anywhere from 3 to 53
 films, with an average of 14.009 movies per director.
 
 ![A histogram showing the distribution of movies per
-director.](img/0_histmoviesperdirector.png){#fig:movies_hist
-width="0.33\\linewidth"}
+director.](img/0_histmoviesperdirector.png)
 
 There are a total of 8 crew roles, with frequencies as shown in Figure
 8.
 
 ![A bar chart showing the frequencies of crew
-roles.](img/0_crewmember_frequency.png){#fig:bar-chart
-width="0.33\\linewidth"}
+roles.](img/0_crewmember_frequency.png)
 
 The total number of unique crew members in a director's network is
 dependent on how many films they've directed, how large the crews were
@@ -436,11 +430,10 @@ different proportions of the number of unique crew members depending on
 the director's specific circumstances.
 
 ![A histogram showing the distribution of the number of unique crew
-members per director.](img/0_histuniquecrewperdirector.png){#fig:enter-label
-width="0.33\\linewidth"}
+members per director.](img/0_histuniquecrewperdirector.png)
 
 ![The degree distribution plot of the network (log
-scale).](img/0_degreedistlog.png){#fig:log-label width="0.33\\linewidth"}
+scale).](img/0_degreedistlog.png)
 
 The degree distribution of the network closely resembles what we would
 anticipate for a real-world network, with the plot following the
@@ -513,8 +506,7 @@ influence scores of less than or equal to 15 and very few directors have
 influence scores higher than 15.
 
 ![A histogram showing the distribution of director influence
-values.](img/1_influence_hist.png){#fig:influence_hist
-width="0.33\\linewidth"}
+values.](img/1_influence_hist.png)
 
 According to our calculations, the top ten most influential directors in
 order are:
@@ -579,8 +571,7 @@ Sound Department. He experienced a substantial jump in his career
 between 2015 and 2016.
 
 ![A line plot showing the career trajectory of a crew member, Daniel
-Lepervanche.](img/1_career_traj.png){#fig:career_traj
-width="0.5\\linewidth"}
+Lepervanche.](img/1_career_traj.png)
 
 In 2015, Lepervanche worked with Richard Linklater, who, according to
 our measure of influence, played some part in enabling Lepervanche to
