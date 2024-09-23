@@ -610,154 +610,34 @@ industry. The two histograms (Figure 13, Figure 14) reveal that the vast
 majority of crew members had only one role (97.4%) or one subrole
 (79.8%). This trend indicates that there is very little role fluctuation
 among the crews of the 101 directors selected.
+## Appendices
 
-  -----------------------------------------------------------------------
-  **Attribute   **Object       **Definition**           **Sample
-  name**        type**                                  attribute value**
-  ------------- -------------- ------------------------ -----------------
-  role          string         The primary role of the  'director'
-                               node, 'director' for all 
-                               director nodes           
+### Figure 1 - Director node attributes
 
-  sex           string         Sex of the director      'F' for female,
-                                                        'M' for male
+| **Attribute name** | **Object type** | **Definition** | **Sample attribute value** |
+|--------------------|-----------------|----------------|----------------------------|
+| role               | string          | The primary role of the node, ‘director’ for all director nodes | ‘director’ |
+| sex                | string          | Sex of the director | ‘F’ for female, ‘M’ for male |
+| race               | string          | Racial identity of the director | ‘B’ for Black, ‘L’ for Latino, ‘A’ for Asian, ‘I’ for Indigenous, ‘W’ for white |
+| labels (if applicable) | string | ‘H’ if the director is one of the top 20 highest-grossing directors, ‘Q’ if the director is LGBTQ+. Director nodes only possess this attribute if they belong to one or both of these categories. | ‘H’ for highest grossing, ‘Q’ for LGBTQ+ |
+| total_films        | integer         | Number of total films directed or co-directed by the director. | 36 |
+| collabs            | string (use `.split(‘, ‘)` to convert to list) | List of all collaborator roles for each movie (with repeats). | ‘Writing Credits, Makeup Department, Sound Department, etc.’ |
 
-  race          string         Racial identity of the   'B' for Black,
-                               director                 'L' for Latino,
-                                                        'A' for Asian,
-                                                        'I' for
-                                                        Indigenous, 'W'
-                                                        for white
+### Figure 2 - Crew node attributes
 
-  labels (if    string         'H' if the director is   'H' for highest
-  applicable)                  one of the top 20        grossing, 'Q' for
-                               highest-grossing         LGBTQ+
-                               directors (there are     
-                               only 20 directors with   
-                               the label 'H' in the     
-                               original director file), 
-                               'Q' if the director is   
-                               LGBTQ+. Director nodes   
-                               only possess this        
-                               attribute if they belong 
-                               to one or both of these  
-                               categories.              
+| **Attribute name** | **Object type** | **Definition** | **Sample attribute value** |
+|--------------------|-----------------|----------------|----------------------------|
+| roles              | string (use `.split(‘, ‘)` to convert to list) | List of all roles possessed by the crew member (with repeats) over their career. | 'Sound Department, Sound Department' |
+| subroles           | string (use `.split(‘, ‘)` to convert to list) | List of all subroles possessed by the crew member (with repeats) over their career. | 're-recording mixer, re-recording mixer' |
+| directors          | string (use `.split(‘, ‘)` to convert to list) | List of directors associated with each film the crew member worked on (with repeats) | 'nm0001054, nm0001054' |
+| years              | string (use `.split(‘, ‘)` to convert to list) | List of years associated with each film the crew member worked on (with repeats) | '1987, 1984' |
+| total_films        | integer         | Total number of films the crew member has worked on | 2 |
+| total_directors    | integer         | Total number of unique directors the crew member worked with | 1 |
+| min_year           | string          | The year of the first movie the crew member worked on | ‘1984’ |
+| max_year           | string          | The year of the most recent movie the crew member worked on | ‘1987’ |
+| start_role         | string          | The role the crew member possessed in their first movie | 'Sound Department' |
+| end_role           | string          | The role the crew member possessed in their most recent movie | 'Sound Department' |
+| num_roles          | integer         | The total number of unique roles taken on by the crew member in their career | 1 |
+| num_subroles       | integer         | The total number of unique subroles taken on by the crew member in their career | 1 |
+| role               | string          | Primary role possessed by the crew member (most frequent role in their career) | ‘Writing Credits’ |
 
-  total_films   integer        Number of total films    
-                               directed or co-directed  
-                               by the director (does    
-                               not include films in     
-                               which the director took  
-                               on other roles like      
-                               writer/producer under    
-                               another director's       
-                               direction).              
-
-  collabs       string (use    List of all collaborator 'Writing Credits,
-                .split.(', ')  roles for each movie     Makeup
-                to convert to  (with repeats). For      Department,
-                list)          example, if a film has 2 Makeup
-                               writers, 1 producer, and Department, Sound
-                               2 makeup artists, that   Department,
-                               will appear in the       Special Effects
-                               'collabs' attribute as   by, Writing
-                               'Writing Credits,        Credits, Produced
-                               Writing Credits,         by, Music by,
-                               Produced by, Makeup      Makeup
-                               department, Makeup       Department, Sound
-                               department.' This is     Department, Sound
-                               then done for all films  Department,
-                               to keep track of how     Writing Credits,
-                               common certain roles are Writing Credits,
-                               and weight the edges     Produced by,
-                               between crew members and Produced by,
-                               directors proportionally Produced by,
-                               to the                   Makeup
-                               significance/rareness of Department, Sound
-                               their role.              Department,
-                                                        Special Effects
-                                                        by, Special
-                                                        Effects by,
-                                                        Writing Credits,
-                                                        Writing Credits'
-  -----------------------------------------------------------------------
-
-**Figure 2 - Crew node attributes**
-
-  ---------------------------------------------------------------------------
-  **Attribute       **Object     **Definition**               **Sample
-  name**            type**                                    attribute
-                                                              value**
-  ----------------- ------------ ---------------------------- ---------------
-  roles             String (use  List of all roles possessed  'Sound
-                    .split.(',   by the crew member (with     Department,
-                    ') to        repeats) over the course of  Sound
-                    convert to   their career. Indexes        Department'
-                    list)        correspond with the          
-                                 'directors' and 'years'      
-                                 attributes Ex: Crewmember    
-                                 possessed the role of        
-                                 roles\[0\] in the year       
-                                 years\[0\] under the         
-                                 director directors\[0\].     
-
-  subroles          String (use  List of all subroles         're-recording
-                    .split.(',   possessed by the crew member mixer,
-                    ') to        (with repeats) over the      re-recording
-                    convert to   course of their career. Some mixer'
-                    list)        individuals possess multiple 
-                                 subroles in the same film    
-                                 (ex: 'hair department head'  
-                                 and 'makeup department       
-                                 head'), so this list is not  
-                                 indexable in the same way as 
-                                 the roles attribute.         
-
-  directors         String (use  List of directors associated 'nm0001054,
-                    .split.(',   with each film the crew      nm0001054'
-                    ') to        member worked on (with       
-                    convert to   repeats)                     
-                    list)                                     
-
-  years             String (use  List of years associated     '1987, 1984'
-                    .split.(',   with each film the crew      
-                    ') to        member worked on (with       
-                    convert to   repeats if multiple films in 
-                    list)        the same year)               
-
-  total_films       Integer      Total number of films the    
-                                 crew member has worked on    
-
-  total_directors   Integer      Total number of unique       
-                                 directors that the           
-                                 crewmember worked with       
-
-  min_year          String       The year of the first movie  '1984'
-                                 the crew member worked on    
-
-  max_year          String       The year of the most recent  '1987'
-                                 movie the crew member worked 
-                                 on                           
-
-  start_role        String       The role the crew member     'Sound
-                                 possessed in their first     Department'
-                                 movie                        
-
-  end_role          String       The role the crew member     'Sound
-                                 possessed in their most      Department'
-                                 recent movie                 
-
-  num_roles         Integer      The total number of unique   
-                                 roles taken on by the crew   
-                                 member in their career       
-
-  num_subroles      Integer      The total number of unique   
-                                 subroles taken on by the     
-                                 crew member in their career  
-
-  role              String       Primary role possessed by    'Writing
-                                 the crew member (most        Credits'
-                                 frequent role in the course  
-                                 of their career/in the       
-                                 'roles' attribute list)      
-  ---------------------------------------------------------------------------
